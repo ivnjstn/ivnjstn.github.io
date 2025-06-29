@@ -1,168 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>ivanjahaha</title>
-  <style>
-    body {
-      background-color: #fff0f5;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 130vh;
-      margin: 0;
-      flex-direction: column;
-      overflow: hidden;
-      position: relative;
-    }
+    <meta charset="UTF-8">
+    <title>cat confession</title>
+    <style>
+        body {
+            background-color: #fff0f5;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 130vh;
+            margin: 0;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
 
-    .container {
-      position: relative;
-      text-align: center;
-    }
+        .container {
+            position: relative;
+            text-align: center;
+        }
 
-    .speech-bubble {
-      position: absolute;
-      top: -80px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(255, 228, 225, 0.9);
-      padding: 12px 24px;
-      border-radius: 20px;
-      border: 2px solid #ff69b4;
-      color: #ff1493;
-      font-weight: bold;
-      font-size: 20px;
-      text-shadow: 1px 1px 2px white;
-      box-shadow: 0 0 10px #ffc0cb;
-      animation: float 2s ease-in-out infinite;
-      z-index: 10;
-    }
+        .speech-bubble {
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 228, 225, 0.9);
+            padding: 12px 24px;
+            border-radius: 20px;
+            border: 2px solid #ff69b4;
+            color: #ff1493;
+            font-weight: bold;
+            font-size: 20px;
+            text-shadow: 1px 1px 2px white;
+            box-shadow: 0 0 10px #ffc0cb;
+            animation: float 2s ease-in-out infinite;
+            z-index: 10;
+        }
 
-    @keyframes float {
-      0%, 100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      50% {
-        transform: translateX(-50%) translateY(-10px);
-      }
-    }
+        @keyframes float {
 
-    #cat-image {
-      width: 450px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(255, 192, 203, 0.7);
-      transition: 0.3s ease-in-out;
-    }
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
 
-    .buttons {
-      margin-top: 20px;
-      position: relative;
-      height: 250px;
-      width: 100%;
-    }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
 
-    .yes-btn, .no-btn {
-      background-color: #ff69b4;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      font-size: 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: 0.3s;
-      position: absolute;
-    }
+        #cat-image {
+            width: 450px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 192, 203, 0.7);
+            transition: 0.3s ease-in-out;
+        }
 
-    .yes-btn:hover,
-    .no-btn:hover {
-      background-color: #ff1493;
-    }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+            height: 250px;
+            width: 100%;
+        }
 
-    .heart {
-      position: absolute;
-      font-size: 24px;
-      animation: floatUp 2s ease-out forwards;
-      pointer-events: none;
-    }
+        .yes-btn,
+        .no-btn {
+            background-color: #ff69b4;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            position: absolute;
+        }
 
-    @keyframes floatUp {
-      0% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-100px);
-      }
-    }
-  </style>
+        .yes-btn:hover,
+        .no-btn:hover {
+            background-color: #ff1493;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            animation: floatUp 2s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="speech-bubble" id="speech">crush mo'ko noh?</div>
-    <img id="cat-image" src="https://media.tenor.com/R0YRjCreZnYAAAAM/100.gif" alt="Cute Cat">
-    <div class="buttons" id="button-area">
-      <button id="yes-btn" class="yes-btn" style="left: 30%; z-index: 100;" onclick="yesClicked()">Yes</button>
-      <button class="no-btn" style="left: 60%;" onclick="duplicateNoButton(this)">No</button>
+    <div class="container">
+        <div id="speech" class="speech-bubble">crush mo'ko noh?</div>
+        <img id="cat-image" src="https://media.tenor.com/R0YRjCreZnYAAAAM/100.gif" alt="Cute Cat">
+        <div id="button-area" class="buttons">
+            <button id="yes-btn" class="yes-btn" style="left: 30%; z-index: 100;" onclick="yesClicked()">Yes</button>
+            <button id="no-btn" class="no-btn" style="left: 60%; top: 0;" onclick="noClicked()">No</button>
+        </div>
     </div>
-  </div>
 
-  <script>
-    let catAngry = false;
-    let yesSize = 1;
+    <script>
+        let catAngry = false;
+        let yesSize = 1;
+        const positions = [
+            { left: '10%', top: '20px' },
+            { left: '80%', top: '20px' },
+            { left: '50%', top: '100px' },
+            { left: '20%', top: '150px' },
+            { left: '70%', top: '180px' }
+        ];
+        let clickCount = 0;
 
-    function duplicateNoButton(originalBtn) {
-      if (!catAngry) {
-        document.getElementById('cat-image').src = 'https://media.tenor.com/nX1YMQb75bsAAAAm/peachy-peck.webp';
-        catAngry = true;
-      }
+        function noClicked() {
+            if (!catAngry) {
+                document.getElementById('cat-image').src =
+                    'https://media.tenor.com/nX1YMQb75bsAAAAm/peachy-peck.webp';
+                catAngry = true;
+            }
 
-      const yesBtn = document.getElementById('yes-btn');
-      yesSize += 0.1;
-      yesBtn.style.transform = `scale(${yesSize})`;
-      yesBtn.style.zIndex = 1000;
+            const yesBtn = document.getElementById('yes-btn');
+            yesSize += 0.1;
+            yesBtn.style.transform = `scale(${yesSize})`;
+            yesBtn.style.zIndex = 1000;
 
-      const buttonArea = document.getElementById('button-area');
-      const newBtn = originalBtn.cloneNode(true);
-      newBtn.onclick = () => duplicateNoButton(newBtn);
+            // Move No button to next predefined position
+            const pos = positions[clickCount % positions.length];
+            const noBtn = document.getElementById('no-btn');
+            noBtn.style.left = pos.left;
+            noBtn.style.top = pos.top;
 
-      const maxX = buttonArea.offsetWidth - 100;
-      const maxY = buttonArea.offsetHeight - 50;
+            clickCount++;
+        }
 
-      const randX = Math.random() * maxX;
-      const randY = Math.random() * maxY;
+        function yesClicked() {
+            document.getElementById('cat-image').src =
+                'https://media.tenor.com/UTmQNO88ls8AAAAi/cat-love.gif';
+            document.getElementById('speech').textContent = "sus ikaw ha!";
+            document.getElementById('button-area').innerHTML = "";
 
-      newBtn.style.left = `${randX}px`;
-      newBtn.style.top = `${randY}px`;
-      newBtn.style.zIndex = 1;
-
-      buttonArea.appendChild(newBtn);
-    }
-
-    function yesClicked() {
-      document.getElementById('cat-image').src = 'https://media.tenor.com/UTmQNO88ls8AAAAi/cat-love.gif';
-      document.getElementById('speech').textContent = "sus ikaw ha!";
-
-      // Remove all buttons
-      document.getElementById('button-area').innerHTML = "";
-
-      // Spawn hearts
-      for (let i = 0; i < 30; i++) {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.textContent = "💖";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.top = Math.random() * 100 + "vh";
-        heart.style.fontSize = Math.random() * 20 + 20 + "px";
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-          heart.remove();
-        }, 2000);
-      }
-    }
-  </script>
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.textContent = "💖";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.top = Math.random() * 100 + "vh";
+                heart.style.fontSize = Math.random() * 20 + 20 + "px";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 2000);
+            }
+        }
+    </script>
 </body>
+
 </html>
